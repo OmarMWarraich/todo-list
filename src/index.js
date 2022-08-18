@@ -11,7 +11,7 @@ todoList.innerHTML = `
                       <input type="text" class="todo-input" placeholder="Add to your list"></input><span>&#x2714;</span>
                       </div>
                       <hr>
-                      <ul class="todo-list-items"></ul>
+                      <div class="todo-list-items"></div>
                       <button class="btn">Clear all completed</button>
                       `;
 body.appendChild(todoList);
@@ -36,14 +36,14 @@ const todoArray = [
 
 const todoListItems = document.querySelector('.todo-list-items');
 todoArray.forEach(todo => {
-  const todoItem = document.createElement('li');
+  const todoItem = document.createElement('div');
   todoItem.classList.add('todo-item');
   todoItem.innerHTML = `
-                        <div>
+                        <div class="todo">
                         <input type="checkbox" class="checkbox" ${todo.completed ? 'checked' : ''}>
                         <span class="todo-description">${todo.description}</span>
-                        </div>
                         <div class="dots"></div>
+                        </div>
                         <hr>
                         `;
   todoListItems.appendChild(todoItem);
