@@ -1,7 +1,27 @@
-.hello {
-  color: red;
-}
 
 body {
-  background-color: bisque;
+  background-color: #d3d3d3;
+  width: 100vw;
+  height: 100vh;
+}
+
+.todo-list {
+  width: 50%;
+  margin: auto;
+  color: #000;
+}
+
+.todo-title {
+  font-size: 0.5em;
+  font-weight: bold;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0.5em;
+  height: 4em;
+}
+
+.reload {
+  font-size: 2.2em;
 }
