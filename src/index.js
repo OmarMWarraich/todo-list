@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import './style.css';
 
 const body = document.querySelector('body');
@@ -18,24 +17,24 @@ body.appendChild(todoList);
 
 const todoArray = [
   {
-    description: "wash the dishes",
+    description: 'wash the dishes',
     completed: false,
     index: 0,
   },
   {
-    description: "do the laundry",
+    description: 'do the laundry',
     completed: false,
     index: 1,
   },
   {
-    description: "take the dog for a walk",
+    description: 'take the dog for a walk',
     completed: false,
     index: 2,
-  }
+  },
 ];
 
 const todoListItems = document.querySelector('.todo-list-items');
-todoArray.forEach(todo => {
+todoArray.forEach((todo) => {
   const todoItem = document.createElement('div');
   todoItem.classList.add('todo-item');
   todoItem.innerHTML = `
@@ -51,10 +50,10 @@ todoArray.forEach(todo => {
 
 window.onload = () => {
   const checkboxes = document.querySelectorAll('.checkbox');
-  checkboxes.forEach(checkbox => {
+  checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', (e) => {
       const todoItem = e.target.parentElement;
       todoItem.classList.toggle('completed');
-    } );
-  } );
-}
+    });
+  });
+};
