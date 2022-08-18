@@ -22,6 +22,17 @@ body {
   height: 4em;
 }
 
+.input {
+  display: flex;
+  justify-content: space-between;
+}
+
 .reload {
   font-size: 2.2em;
+}
+
+.btn {
+  border: none;
+  background-color: #fff;
+  width: 100%; 
 }
