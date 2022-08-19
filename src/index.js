@@ -39,7 +39,7 @@ todoArray.forEach((todo) => {
   todoItem.classList.add('todo-item');
   todoItem.innerHTML = `
                         <div class="todo">
-                        <input type="checkbox" class="checkbox" ${todo.completed ? 'checked' : ''}>
+                        <input id="checkbox" type="checkbox" class="checkbox" ${todo.completed ? 'checked' : ''}>
                         <span class="todo-description">${todo.description}</span>
                         <div class="dots"></div>
                         </div>
