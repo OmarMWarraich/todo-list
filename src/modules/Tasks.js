@@ -1,12 +1,11 @@
 import _ from 'lodash';
 import Status from './TaskStatus.js';
 
-let todoArray = [];
-
 // eslint-disable-next-line no-unused-vars
 const state = new Status();
 
 const Tasks = () => {
+  let todoArray = [];
   const textInput = document.querySelector('.todo-input');
   const enterInput = document.querySelector('.enter-input');
   enterInput.addEventListener('click', (e) => {
@@ -96,7 +95,9 @@ export default Tasks;
 
 export const getTodoArray = () => {
   // eslint-disable-next-line no-unused-expressions
-  localStorage.getItem('todoArray') ? todoArray = JSON.parse(localStorage.getItem('todoArray')) : todoArray = [];
+  
+  const todoArray = JSON.parse(localStorage.getItem('todoArray'));
+  
   const todoListItems = document.querySelector('.todo-list-items');
   todoArray.forEach((todo) => {
     const todoItem = document.createElement('div');
