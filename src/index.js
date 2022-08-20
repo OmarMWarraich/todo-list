@@ -1,5 +1,5 @@
 import './style.css';
-import Tasks from './modules/Tasks.js';
+import Tasks, { getTodoArray } from './modules/Tasks.js';
 
 const body = document.querySelector('body');
 const todoList = document.createElement('div');
@@ -16,3 +16,5 @@ todoList.innerHTML = `
                       `;
 body.appendChild(todoList);
 Tasks();
+
+window.onload = () => getTodoArray();
