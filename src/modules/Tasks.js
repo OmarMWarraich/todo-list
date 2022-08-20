@@ -3,6 +3,8 @@
 const todoArray = [];
 console.log(todoArray);
 
+let data = [];
+
 const Tasks = () => {
 const textInput = document.querySelector('.todo-input');
 const enterInput = document.querySelector('.enter-input');
@@ -19,11 +21,13 @@ let addTodo = () => {
     const todo = {
         description: textInput.value,
         completed: false,
+        index: (todoArray.length + 1)
     };
     todoArray.push(todo);
     textInput.value = '';
     renderTodo();
     console.log(todoArray);
+    console.log(localStorage.setItem('todoArray', JSON.stringify(todoArray)));
 }
 
 let removeTodo = (index) => {
@@ -63,7 +67,7 @@ let renderTodo = () => {
             console.log(index);
             removeTodo(index);
             console.log(todoArray);
-
+            console.log(localStorage.setItem('todoArray', JSON.stringify(todoArray)));
         });
         
     });
