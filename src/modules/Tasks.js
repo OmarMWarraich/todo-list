@@ -77,7 +77,14 @@ const Tasks = () => {
         checkbox.addEventListener('click', (e) => {
           todo.completed = true;  
         todoArray = _.filter(todoArray, function(o) { return !o.completed; });
-        console.log(todoArray);
+        localStorage.setItem('todoArray', JSON.stringify(todoArray));
+      });
+
+      const clearBtn = document.querySelector('.btn');
+
+      clearBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        renderTodo();
       });
 
     });
