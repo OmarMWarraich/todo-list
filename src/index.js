@@ -18,8 +18,3 @@ body.appendChild(todoList);
 
 Tasks();
 
-/*
-const reload = document.querySelector('.reload');
-reload.addEventListener('click', () => {
-    location.reload();
-}); */

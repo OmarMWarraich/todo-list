@@ -68,15 +68,6 @@ const Tasks = () => {
         localStorage.setItem('todoArray', JSON.stringify(todoArray));
       });
     });
-    /* const checkboxes = document.querySelectorAll('.checkbox');
-    checkboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', (e) => {
-            const todoItem = e.target.parentElement;
-            todoItem.classList.toggle('completed');
-        }
-        );
-    }
-    ); */
   };
 };
 
