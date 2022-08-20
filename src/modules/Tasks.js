@@ -1,9 +1,10 @@
 import _ from 'lodash';
-import Status from './TaskStatus';
+import Status from './TaskStatus.js';
 
 let todoArray = [];
 
-const state = new Status;
+// eslint-disable-next-line no-unused-vars
+const state = new Status();
 
 const Tasks = () => {
   const textInput = document.querySelector('.todo-input');
@@ -64,7 +65,7 @@ const Tasks = () => {
                               `;
 
       todoListItems.appendChild(todoItem);
-      
+
       const dot = todoItem.querySelector('.dots');
       dot.addEventListener('click', (e) => {
         e.preventDefault();
@@ -74,9 +75,10 @@ const Tasks = () => {
       });
 
       const checkbox = todoItem.querySelector('.checkbox');
-        checkbox.addEventListener('click', (e) => {
-          todo.completed = true;  
-        todoArray = _.filter(todoArray, function(o) { return !o.completed; });
+      // eslint-disable-next-line no-unused-vars
+      checkbox.addEventListener('click', (e) => {
+        todo.completed = true;
+        todoArray = _.filter(todoArray, (o) => !o.completed);
         localStorage.setItem('todoArray', JSON.stringify(todoArray));
       });
 
@@ -86,7 +88,6 @@ const Tasks = () => {
         e.preventDefault();
         renderTodo();
       });
-
     });
   };
 };
@@ -94,6 +95,7 @@ const Tasks = () => {
 export default Tasks;
 
 export const getTodoArray = () => {
+  // eslint-disable-next-line no-unused-expressions
   localStorage.getItem('todoArray') ? todoArray = JSON.parse(localStorage.getItem('todoArray')) : todoArray = [];
   const todoListItems = document.querySelector('.todo-list-items');
   todoArray.forEach((todo) => {
@@ -110,4 +112,4 @@ export const getTodoArray = () => {
 
     todoListItems.appendChild(todoItem);
   });
-}
+};
