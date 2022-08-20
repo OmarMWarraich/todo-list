@@ -28,7 +28,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Install
 
-- Install the dependencies using `npm install`.
+- Install the dependencies using `npm i`.
 - Run on live server.
 
 ## Authors
