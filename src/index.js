@@ -15,23 +15,7 @@ todoList.innerHTML = `
                       `;
 body.appendChild(todoList);
 
-const todoArray = [
-  {
-    description: 'wash the dishes',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'do the laundry',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'take the dog for a walk',
-    completed: false,
-    index: 2,
-  },
-];
+const todoArray = [];
 
 const todoListItems = document.querySelector('.todo-list-items');
 todoArray.forEach((todo) => {
