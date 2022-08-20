@@ -1,4 +1,9 @@
-const todoArray = [];
+import _ from 'lodash';
+import Status from './TaskStatus';
+
+let todoArray = [];
+
+const state = new Status;
 
 const Tasks = () => {
   const textInput = document.querySelector('.todo-input');
@@ -59,15 +64,24 @@ const Tasks = () => {
                               `;
 
       todoListItems.appendChild(todoItem);
+      
       const dot = todoItem.querySelector('.dots');
-
       dot.addEventListener('click', (e) => {
         e.preventDefault();
         const index = todoArray.indexOf(e.target.parentNode.parentNode.parentNode);
         removeTodo(index);
         localStorage.setItem('todoArray', JSON.stringify(todoArray));
       });
+
+      const checkbox = todoItem.querySelector('.checkbox');
+        checkbox.addEventListener('click', (e) => {
+          todo.completed = true;  
+        todoArray = _.filter(todoArray, function(o) { return !o.completed; });
+        console.log(todoArray);
+      });
+
     });
+    
   };
 };
 
