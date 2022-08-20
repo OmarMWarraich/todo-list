@@ -26,24 +26,47 @@ let addTodo = () => {
     console.log(todoArray);
 }
 
+let removeTodo = (index) => {
+    todoArray.splice(index, 1);
+    renderTodo();
+}
+
+let editTodo = (index, newDescription) => {
+    todoArray[index].description = newDescription;
+    renderTodo();
+}
 
 let renderTodo = () => {
     const todoListItems = document.querySelector('.todo-list-items');
     todoListItems.innerHTML = '';
-    for(let i = 0; i < todoArray.length; i++) {
+    
+
+    todoArray.forEach((todo, index) => {
         const todoItem = document.createElement('div');
         todoItem.classList.add('todo-item');
         todoItem.innerHTML = `
                               <div class="todo">
-                              <input id="checkbox" type="checkbox" class="checkbox" ${todoArray[i].completed} ? 'checked' : ''}>
-                              <span class="todo-description" type="submit">${todoArray[i].description}</span>
+                              <input id="checkbox" type="checkbox" class="checkbox" ${todo.completed} ? 'checked' : ''}>
+                              <span class="todo-description" type="submit" contenteditable="true">${todo.description}</span>
                               <div class="dots"></div>
                               </div>
                               <hr>
                               `;
+        
         todoListItems.appendChild(todoItem);
-    }
+        const dot = todoItem.querySelector('.dots');
 
+        
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            const index = todoArray.indexOf(e.target.parentNode.parentNode.parentNode);
+            console.log(index);
+            removeTodo(index);
+            console.log(todoArray);
+
+        });
+        
+    });
     /* const checkboxes = document.querySelectorAll('.checkbox');
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener('change', (e) => {
@@ -52,9 +75,10 @@ let renderTodo = () => {
         }
         );
     }
-    ); */
-    
-}
+    ); */    
+};
+
+
 }
 
 export default Tasks;
