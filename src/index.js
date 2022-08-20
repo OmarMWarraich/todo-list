@@ -1,5 +1,5 @@
 import './style.css';
-import Tasks from './modules/Tasks';
+import Tasks from './modules/Tasks.js';
 
 const body = document.querySelector('body');
 const todoList = document.createElement('div');
@@ -18,8 +18,7 @@ body.appendChild(todoList);
 
 Tasks();
 
-
-/* 
+/*
 const reload = document.querySelector('.reload');
 reload.addEventListener('click', () => {
     location.reload();

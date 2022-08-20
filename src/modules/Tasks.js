@@ -1,54 +1,55 @@
-
-
 const todoArray = [];
-console.log(todoArray);
-
-let data = [];
 
 const Tasks = () => {
-const textInput = document.querySelector('.todo-input');
-const enterInput = document.querySelector('.enter-input');
-enterInput.addEventListener('click', (e) => {
+  const textInput = document.querySelector('.todo-input');
+  const enterInput = document.querySelector('.enter-input');
+  enterInput.addEventListener('click', (e) => {
     e.preventDefault();
+    // eslint-disable-next-line no-use-before-define
     formValidation();
-});
+  });
 
-let formValidation = () => {
-    (textInput.value === '') ? alert('Please enter a task') : addTodo();
-}
-
-let addTodo = () => {
+  const addTodo = () => {
     const todo = {
-        description: textInput.value,
-        completed: false,
-        index: (todoArray.length + 1)
+      description: textInput.value,
+      completed: false,
+      index: (todoArray.length + 1),
     };
     todoArray.push(todo);
     textInput.value = '';
+    // eslint-disable-next-line no-use-before-define
     renderTodo();
-    console.log(todoArray);
-    console.log(localStorage.setItem('todoArray', JSON.stringify(todoArray)));
-}
+    localStorage.setItem('todoArray', JSON.stringify(todoArray));
+  };
 
-let removeTodo = (index) => {
+  //
+  const formValidation = () => {
+    // eslint-disable-next-line no-unused-expressions
+    (textInput.value === '') ? alert('Please enter a task') : addTodo();
+  };
+
+  const removeTodo = (index) => {
     todoArray.splice(index, 1);
+    // eslint-disable-next-line no-use-before-define
     renderTodo();
-}
+  };
 
-let editTodo = (index, newDescription) => {
+  // eslint-disable-next-line no-unused-vars
+  const editTodo = (index, newDescription) => {
     todoArray[index].description = newDescription;
+    // eslint-disable-next-line no-use-before-define
     renderTodo();
-}
+  };
 
-let renderTodo = () => {
+  // eslint-disable-next-line no-use-before-define
+  let renderTodo = () => {
     const todoListItems = document.querySelector('.todo-list-items');
     todoListItems.innerHTML = '';
-    
 
-    todoArray.forEach((todo, index) => {
-        const todoItem = document.createElement('div');
-        todoItem.classList.add('todo-item');
-        todoItem.innerHTML = `
+    todoArray.forEach((todo) => {
+      const todoItem = document.createElement('div');
+      todoItem.classList.add('todo-item');
+      todoItem.innerHTML = `
                               <div class="todo">
                               <input id="checkbox" type="checkbox" class="checkbox" ${todo.completed} ? 'checked' : ''}>
                               <span class="todo-description" type="submit" contenteditable="true">${todo.description}</span>
@@ -56,20 +57,16 @@ let renderTodo = () => {
                               </div>
                               <hr>
                               `;
-        
-        todoListItems.appendChild(todoItem);
-        const dot = todoItem.querySelector('.dots');
 
-        
-        dot.addEventListener('click', (e) => {
-            e.preventDefault();
-            const index = todoArray.indexOf(e.target.parentNode.parentNode.parentNode);
-            console.log(index);
-            removeTodo(index);
-            console.log(todoArray);
-            console.log(localStorage.setItem('todoArray', JSON.stringify(todoArray)));
-        });
-        
+      todoListItems.appendChild(todoItem);
+      const dot = todoItem.querySelector('.dots');
+
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        const index = todoArray.indexOf(e.target.parentNode.parentNode.parentNode);
+        removeTodo(index);
+        localStorage.setItem('todoArray', JSON.stringify(todoArray));
+      });
     });
     /* const checkboxes = document.querySelectorAll('.checkbox');
     checkboxes.forEach((checkbox) => {
@@ -79,10 +76,8 @@ let renderTodo = () => {
         }
         );
     }
-    ); */    
+    ); */
+  };
 };
-
-
-}
 
 export default Tasks;
