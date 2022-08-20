@@ -88,8 +88,26 @@ const Tasks = () => {
       });
 
     });
-    
   };
 };
 
 export default Tasks;
+
+export const getTodoArray = () => {
+  localStorage.getItem('todoArray') ? todoArray = JSON.parse(localStorage.getItem('todoArray')) : todoArray = [];
+  const todoListItems = document.querySelector('.todo-list-items');
+  todoArray.forEach((todo) => {
+    const todoItem = document.createElement('div');
+    todoItem.classList.add('todo-item');
+    todoItem.innerHTML = `
+                            <div class="todo">
+                            <input id="checkbox" type="checkbox" class="checkbox" ${todo.completed} ? 'checked' : ''}>
+                            <span class="todo-description" type="submit" contenteditable="true">${todo.description}</span>
+                            <div class="dots"></div>
+                            </div>
+                            <hr>
+                            `;
+
+    todoListItems.appendChild(todoItem);
+  });
+}
