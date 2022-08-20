@@ -94,10 +94,7 @@ const Tasks = () => {
 export default Tasks;
 
 export const getTodoArray = () => {
-  // eslint-disable-next-line no-unused-expressions
-  
   const todoArray = JSON.parse(localStorage.getItem('todoArray'));
-  
   const todoListItems = document.querySelector('.todo-list-items');
   todoArray.forEach((todo) => {
     const todoItem = document.createElement('div');
