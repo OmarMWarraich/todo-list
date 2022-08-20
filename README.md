@@ -10,7 +10,7 @@
 
 ## Live Demo 
 
-- Coming Soon
+- [Live Demo](https://o-va-todo.netlify.app)
 
 ## Getting Started
 
