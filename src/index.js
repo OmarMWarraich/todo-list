@@ -15,6 +15,4 @@ todoList.innerHTML = `
                       <button class="btn">Clear all completed</button>
                       `;
 body.appendChild(todoList);
-
 Tasks();
-
