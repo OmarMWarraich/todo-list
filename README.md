@@ -10,7 +10,7 @@
 
 ## Live Demo 
 
-[Live Demo Link]()
+- Coming Soon
 
 ## Getting Started
 
@@ -51,9 +51,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- 
-- 
-- 
+- Microverse
 
 ## 📝 License
 

@@ -52,8 +52,8 @@ body {
 }
 
 .dots {
-  width: 3px;
-  height: 3px;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
   background-color: black;
   box-shadow: 0 6px 0 black, 0 12px 0 black;
